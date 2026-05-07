@@ -1,0 +1,22 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+
+    - name: Compile Java files
+      run: javac -cp src src/sit707_week9/TaskStatusService.java src/sit707_week9/TaskStatusServiceTest.java
